@@ -11,7 +11,7 @@ import { ContactSection } from '@/components/home/contact-section'
 
 export default function HomePage() {
   return (
-    <main className="overflow-x-hidden">
+    <main>
       <SiteHeader />
       <Hero />
       <AboutSection />
