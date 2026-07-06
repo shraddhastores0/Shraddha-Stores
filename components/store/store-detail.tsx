@@ -28,7 +28,7 @@ export function StoreDetail({ store, related }: { store: Store; related: Store[]
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.18])
 
   return (
-    <main className="overflow-x-hidden bg-background">
+    <main className="bg-background">
       <FloatingActions phone={store.phone} whatsapp={store.whatsapp} />
 
       {/* Hero banner */}
