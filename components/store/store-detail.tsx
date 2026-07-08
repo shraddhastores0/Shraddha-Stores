@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useRef } from 'react'
 import {
   ArrowLeft,
@@ -20,12 +20,6 @@ import { WhatsAppIcon } from '@/components/social-icons'
 export function StoreDetail({ store, related }: { store: Store; related: Store[] }) {
   const Icon = storeIcons[store.slug]
   const heroRef = useRef<HTMLElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ['start start', 'end start'],
-  })
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '35%'])
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.18])
 
   return (
     <main className="bg-background">
@@ -33,20 +27,9 @@ export function StoreDetail({ store, related }: { store: Store; related: Store[]
 
       {/* Hero banner */}
       <section ref={heroRef} className="relative h-[65svh] min-h-[460px] overflow-hidden bg-neutral-950">
-        {/* Store image background with parallax */}
-        <motion.div
-          className="absolute inset-0"
-          style={{ y, scale }}
-        >
-          <img
-            src={store.image}
-            alt={store.name}
-            className="h-full w-full object-cover"
-          />
-        </motion.div>
 
         {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-neutral-950/55" />
+        <div className="absolute inset-0 bg-neutral-950/40" />
 
         {/* Subtle grid pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:32px_32px] opacity-40" />
@@ -85,7 +68,7 @@ export function StoreDetail({ store, related }: { store: Store; related: Store[]
               </span>
             </div>
             <h1
-              className="font-heading mt-5 max-w-3xl text-balance text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl"
+              className="font-heading mt-5 max-w-3xl text-balance text-2xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl"
               style={{
                 backgroundImage: 'linear-gradient(135deg, #FFF8E7 0%, #F8E7B5 50%, #D8B56A 100%)',
                 WebkitBackgroundClip: 'text',
@@ -96,7 +79,7 @@ export function StoreDetail({ store, related }: { store: Store; related: Store[]
               {store.name}
             </h1>
             <p
-              className="mt-4 max-w-xl text-pretty text-lg text-white/90"
+              className="mt-4 max-w-xl text-pretty text-base text-white/90 sm:text-lg"
               style={{
                 filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.9))',
               }}
@@ -279,9 +262,9 @@ export function StoreDetail({ store, related }: { store: Store; related: Store[]
                   <Link href={`/stores/${r.slug}`} className="group block h-full">
                     <motion.article
                       whileHover={{ y: -8 }}
-                      className="flex h-full overflow-hidden rounded-[1.5rem] border border-border bg-card shadow-sm transition-shadow group-hover:shadow-2xl"
+                      className="flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-border bg-card shadow-sm transition-shadow group-hover:shadow-2xl sm:flex-row"
                     >
-                      <div className="relative w-2/5 shrink-0 overflow-hidden">
+                      <div className="relative h-48 w-full shrink-0 overflow-hidden sm:h-auto sm:w-2/5">
                         <img
                           src={r.image || '/placeholder.svg'}
                           alt={r.name}
