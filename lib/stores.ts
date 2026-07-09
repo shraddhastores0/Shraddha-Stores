@@ -159,11 +159,11 @@ export const stores: Store[] = [
       'Baby Care',
       'Healthcare Products',
       'Medical Equipment',
-      'pet foods',
-      'surgical items',
-      'wide range of pads and diapers',
-      'cosmetics',
-      'homeopathy and allopathy medicines'
+      'Pet Foods',
+      'Surgical Items',
+      'Wide Range Of Pads And Diapers',
+      'Cosmetics',
+      'Homeopathy And Allopathy Medicines'
     ],
     suggestedProducts: [
       { name: 'Daily Wellness Vitamins', note: 'Doctor recommended' },
