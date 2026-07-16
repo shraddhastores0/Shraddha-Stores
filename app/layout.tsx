@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     'family business',
     'grocery',
   ],
+  icons: {
+    icon: '/Logo.png',
+  },
 }
 
 export const viewport: Viewport = {
